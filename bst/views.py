@@ -38,7 +38,5 @@ def tryq(request):
 		print(request.POST.get('node'))
 		a.append(request.POST.get('node'))
 		print(a)
-
-
 	
 	return render(request, 'bst/bst1.html' , {'s':a})

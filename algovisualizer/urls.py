@@ -16,8 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from bst.views import *
+from search.views import *
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',home),
-    path('a',tryq)
+    path('a',tryq),
+    path('s',searchhome)
 ]
