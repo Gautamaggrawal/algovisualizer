@@ -8,7 +8,7 @@
 * Create Diagrams for BINARY SEARCH TREE
 * Working of Sorting with strings(QUICK SORT)
 
-http://somawatvinay.pythonanywhere.com/
+https://algovisualizer.herokuapp.com/
 
 **To setup the project on your local machine:**
 
