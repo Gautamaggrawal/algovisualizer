@@ -1,42 +1,13 @@
-from django.shortcuts import render
+from django.shortcuts import render,HttpResponseRedirect,HttpResponse
 import json
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 
-# Create your views here.
+@csrf_exempt
 def home(request):
-	
-	
-	python_object = {
-	"name": "Top Level",
-	"parent": "null",
-	"children": [
-	{
-	"name": "Level yosh: A",
-	"parent": "Top Level",
-	"children": [
-	{
-	"name": "Son of A",
-	"parent": "Level 2: A"
-	},
-	{
-	"name": "Daughter of A",
-	"parent": "Level 2: A"
-	}
-	]
-	},
-	{
-	"name": "Level 2: B",
-	"parent": "Top Level"
-	}
-	]}
-	json_string = json.dumps(python_object)
-	return render(request, 'bst/bst.html' , {'json_string': json_string})
-
-
-def tryq(request):
-	a=[]
 	if request.method=='POST':
-		print(request.POST.get('node'))
-		a.append(request.POST.get('node'))
-		print(a)
-	
-	return render(request, 'bst/bst1.html' , {'s':a})
+		arr=(request.POST.getlist('d[]'))
+		arr=list(map(int, arr))
+		return JsonResponse({'data': arr})
+
+	return render(request, 'bst/bst.html')

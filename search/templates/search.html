@@ -36,10 +36,9 @@
 		      console.log(arr);
 		      var saveData = $.ajax({
 		      type: 'POST',
-		      url: "/s",
+		      url: "/s/",
 		      data: {"d":arr},
 		      success: function(resultData) {
-		        alert(resultData['sorteddata'])
 		        var listData=resultData['sorteddata']
 		         var listContainer = document.createElement("div");
 		
@@ -65,19 +64,6 @@
 		        // Add listItem to the listElement
 		        listElement.appendChild(listItem);
 		    }
-		        
-		        
-		        
-		        
-		        
-		        
-		        
-		        
-		        
-		        
-		        
-		        
-		        
 		        
 		        }
 		});

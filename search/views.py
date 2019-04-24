@@ -4,7 +4,6 @@ from django.views.decorators.csrf import csrf_exempt
 from .qsort import *
 
 
-# Create your views here.
 @csrf_exempt
 def searchhome(request):
   if request.method == "POST":

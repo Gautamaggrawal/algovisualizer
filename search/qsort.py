@@ -9,7 +9,7 @@ def partition(arr,low,high):
 	i = ( low-1 )		 # index of smaller element 
 	pivot = arr[high]
 
-	print(arr[0])	 # pivot 
+	# print(arr[0])	 # pivot 
 
 	for j in range(low , high): 
 
@@ -43,11 +43,11 @@ def quickSort(arr,low,high):
 		quickSort(arr, pi+1, high) 
 
 # Driver code to test above 
-arr = ['sdf', "asdfgh"] 
-n = len(arr) 
-quickSort(arr,0,n-1) 
-print ("Sorted array is:") 
-for i in range(n): 
-	print (arr[i]), 
+# arr = ['sdf', "asdfgh"] 
+# n = len(arr) 
+# quickSort(arr,0,n-1) 
+# print ("Sorted array is:") 
+# for i in range(n): 
+# 	print (arr[i]), 
 
-# This code is contributed by Mohit Kumra 
+
