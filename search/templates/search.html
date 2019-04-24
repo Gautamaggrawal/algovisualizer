@@ -2,11 +2,17 @@
 <html>
 
 <body>
+	<center><h1>Sorting Strings</h1></center>
 	<input type='text' id='idea' />
 	<input type='button' value='add to list' id='add' />
 	<input type='button' value='sort' id='back' />
+	<input type="button" value="Reset" id='rst' />
+	<h4>Unsorted</h4>
 	<ul id='list'></ul>
 	<script>
+		document.getElementById("rst").onclick = function() {
+			location.reload()
+		}
 		document.getElementById("add").onclick = function() {
 		    //First things first, we need our text:
 		    var arr=['qq']
@@ -26,7 +32,7 @@
 	<script>
 		document.getElementById("back").onclick = function() {
 		      var arr=[]
-		  var lis = document.getElementById("list").getElementsByTagName("li");
+		  	var lis = document.getElementById("list").getElementsByTagName("li");
 		    for(var i=0;i<lis.length;i++)
 		      {
 		        console.log(lis[i].innerText);
@@ -43,6 +49,10 @@
 		         var listContainer = document.createElement("div");
 		
 		    // Add it to the page
+		    var h = document.createElement("H4");
+    var t = document.createTextNode('Sorted');
+    h.appendChild(t);
+    document.body.appendChild(h);
 		    document.getElementsByTagName("body")[0].appendChild(listContainer);
 		
 		    // Make the list
@@ -71,11 +81,6 @@
 		
 		}
 	</script>
-	<p><strong>Note:</strong>
-		<br>First create an LI node,
-		<br>then create a Text node,
-		<br>then append the Text node to the LI node.
-		<br>Finally append the LI node to the list.</p>
 </body>
 
 </html>

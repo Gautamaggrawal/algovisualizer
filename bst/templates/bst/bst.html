@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title></title>
+    <title>BST Visualization</title>
     <style >
 svg{
     /*background:gray;*/
@@ -34,15 +34,20 @@ svg{
 </style>
 </head>
 <body>
+   <center><h1>Binary Search Tree Visualization</h1></center>
 
         <input type='text' id='idea' />
         <button  onclick='sendelements()'>insert</button>
         <button  onclick='backend()'>Draw Tree</button>
+        <button  onclick='reset()'>Reset</button>
         <ul id='list'></ul>
     
 <script src="https://d3js.org/d3.v5.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script>
+function reset(){
+    location.reload()
+}    
 function sendelements(){
 var node = document.createElement("LI");
             var txt =document.getElementById("idea").value; //.value gets input values
@@ -139,7 +144,7 @@ function Bst(params){
     
     
 
-    var node = new Node(5);
+    var node = new Node(numbers[0]);
     var tree = new BinarySearchTree(node);
 
     for (i in numbers){
