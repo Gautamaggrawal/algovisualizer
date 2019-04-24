@@ -31,9 +31,42 @@ svg{
         fill: rgba(0, 0, 0, 0.1) !important;
         stroke: rgba(0, 0, 0, 0.1);
 }
+#nav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+#navli {
+  float: left;
+}
+
+#navli a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+#navli a:hover {
+  background-color: #111;
+}
+
 </style>
 </head>
 <body>
+<ul id="nav">
+  <li id="navli"><a href="/">Home</a></li>
+  <li id="navli"><a href="/bst/">Binary Search Tree</a></li>
+  <li id="navli"><a href="/sort/">Sorting</a></li>
+</ul>
+
+
+
+
    <center><h1>Binary Search Tree Visualization</h1></center>
 
         <input type='text' id='idea' />
