@@ -4,7 +4,7 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 
 @csrf_exempt
-def home(request):
+def BinarySearchTreeView(request):
 	if request.method=='POST':
 		arr=(request.POST.getlist('d[]'))
 		arr=list(map(int, arr))

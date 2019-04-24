@@ -65,15 +65,20 @@ function backend(){
               
               var saveData = $.ajax({
               type: 'POST',
-              url: "/",
+              url: "/bst/",
               async: true,
               data: {"d":arr},
               success: function(resultData) {
                 console.log(resultData['data'])
                 Bst(resultData['data']);
                 
+                },
+                error:function(e)
+                {
+                    alert("Incorrect Node");
                 }
         });
+
 
 }
 

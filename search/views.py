@@ -5,7 +5,7 @@ from .qsort import *
 
 
 @csrf_exempt
-def searchhome(request):
+def SortingView(request):
   if request.method == "POST":
     arr=(request.POST.getlist('d[]'))
     n = len(arr) 
