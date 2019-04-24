@@ -1,35 +1,95 @@
 <!DOCTYPE html>
 <html>
+
 <body>
-
-<input type='text' id='idea' />
-<input type='button' value='add to list' id='add' />
-<ul id='list'></ul>
-
-
-
-
-<script>
-
-
-
-document.getElementById("add").onclick = function() {
-    //First things first, we need our text:
-    var node = document.createElement("LI");
-    var txt =document.getElementById("idea").value; //.value gets input values
-  	var textnode = document.createTextNode(txt);
-  	node.appendChild(textnode);
-  	document.getElementById("list").appendChild(node);
-  	console.log(document.getElementById("list"))
-
-
-
-
-}
-
-</script>
-
-<p><strong>Note:</strong><br>First create an LI node,<br> then create a Text node,<br> then append the Text node to the LI node.<br>Finally append the LI node to the list.</p>
-
+	<input type='text' id='idea' />
+	<input type='button' value='add to list' id='add' />
+	<input type='button' value='sort' id='back' />
+	<ul id='list'></ul>
+	<script>
+		document.getElementById("add").onclick = function() {
+		    //First things first, we need our text:
+		    var arr=['qq']
+		    //arr.push(document.getElementById("idea").value);
+		//     console.log(arr.length);
+		    
+		    var node = document.createElement("LI");
+		    var txt =document.getElementById("idea").value; //.value gets input values
+		  	var textnode = document.createTextNode(txt);
+		  	node.appendChild(textnode);
+		  	document.getElementById("list").appendChild(node);
+		  	console.log(document.getElementById("list"))
+		    
+		}
+	</script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script>
+		document.getElementById("back").onclick = function() {
+		      var arr=[]
+		  var lis = document.getElementById("list").getElementsByTagName("li");
+		    for(var i=0;i<lis.length;i++)
+		      {
+		        console.log(lis[i].innerText);
+		        arr.push(lis[i].innerText);
+		        
+		      }
+		      console.log(arr);
+		      var saveData = $.ajax({
+		      type: 'POST',
+		      url: "/s",
+		      data: {"d":arr},
+		      success: function(resultData) {
+		        alert(resultData['sorteddata'])
+		        var listData=resultData['sorteddata']
+		         var listContainer = document.createElement("div");
+		
+		    // Add it to the page
+		    document.getElementsByTagName("body")[0].appendChild(listContainer);
+		
+		    // Make the list
+		    var listElement = document.createElement("ul");
+		
+		    // Add it to the page
+		    listContainer.appendChild(listElement);
+		
+		    // Set up a loop that goes through the items in listItems one at a time
+		    var numberOfListItems = listData.length;
+		
+		    for (var i = 0; i < numberOfListItems; ++i) {
+		        // create an item for each one
+		        var listItem = document.createElement("li");
+		
+		        // Add the item text
+		        listItem.innerHTML = listData[i];
+		
+		        // Add listItem to the listElement
+		        listElement.appendChild(listItem);
+		    }
+		        
+		        
+		        
+		        
+		        
+		        
+		        
+		        
+		        
+		        
+		        
+		        
+		        
+		        
+		        }
+		});
+		saveData.error(function() { alert("Something went wrong"); });
+		
+		}
+	</script>
+	<p><strong>Note:</strong>
+		<br>First create an LI node,
+		<br>then create a Text node,
+		<br>then append the Text node to the LI node.
+		<br>Finally append the LI node to the list.</p>
 </body>
+
 </html>
